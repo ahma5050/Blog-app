@@ -7,6 +7,8 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Header from './components/Header'
+import FooterCom from './components/Footer'
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,6 +21,7 @@ const App = () => {
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Signup" element={<Signup />} />
       </Routes>
+      <FooterCom />
     </BrowserRouter>
   )
 }
