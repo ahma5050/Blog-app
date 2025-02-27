@@ -1,4 +1,4 @@
-import { Button, Label, Spinner, TextInput } from "flowbite-react";
+import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { Link, useNavigate,  } from "react-router-dom";
 
@@ -39,9 +39,9 @@ const Signup = () => {
         <div className="flex-1 ">
           <Link to="/Signup" className=" text-4xl font-bold dark:text-white ">
             <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white ">
-              Cleverly's{" "}
+             Sign{" "}
             </span>
-            Blog
+            Up
           </Link>
           <p className="text-sm mt-5">
             this a demo Projects. You can Signup with Your email and password or
@@ -64,7 +64,7 @@ const Signup = () => {
               <Label value="email" className="text-md" />
               <TextInput
                 type="email"
-                placeholder="email"
+                placeholder="Ahmisha5050@gmail.com"
                 id="email"
                 className="mt-1 font-semibold"
                 onChange={handleChange}
@@ -97,11 +97,12 @@ const Signup = () => {
             <div className="text-sm flex gap-5 mt-5">
               <span>
                 Alredy have an account ?{" "}
-                <Link to="/Sginin" className="text-blue-500">
+                <Link to="/Signin" className="text-blue-500">
                   Sign In
                 </Link>
               </span>
             </div>
+            {error && (<Alert className="mt-3 " color="failure" >{error}</Alert>)}
           </form>
         </div>
       </div>
