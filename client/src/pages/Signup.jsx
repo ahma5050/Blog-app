@@ -1,6 +1,7 @@
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { Link, useNavigate,  } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 const Signup = () => {
   const [formDta, setFormData] = useState({});
@@ -94,7 +95,10 @@ const Signup = () => {
                 "Sing up"
               )}
             </Button>
-            <div className="text-sm flex gap-5 mt-5">
+            <OAuth />
+           
+          </form>
+          <div className="text-sm flex gap-5 mt-5">
               <span>
                 Alredy have an account ?{" "}
                 <Link to="/Signin" className="text-blue-500">
@@ -103,7 +107,6 @@ const Signup = () => {
               </span>
             </div>
             {error && (<Alert className="mt-3 " color="failure" >{error}</Alert>)}
-          </form>
         </div>
       </div>
     </div>

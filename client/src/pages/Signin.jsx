@@ -1,10 +1,14 @@
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { Link, useNavigate,  } from "react-router-dom";
+import { signInStart,signInSuccess, signInFailure } from "../redux/user/userSlice";
+import { useDispatch, useSelector} from 'react-redux'
+import OAuth from "../components/OAuth";
 const Signin = () => {
   const [formDta, setFormData] = useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+ 
+  const dispatch=useDispatch();
+  const {loading, error}=useSelector((state)=>state.user);
   const Navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formDta, [e.target.id]: e.target.value });
@@ -14,24 +18,25 @@ const Signin = () => {
     e.preventDefault();
 
     try {
-      setLoading(true);
-      setError(null);
+     dispatch(signInStart())
       const res = await fetch("/api/authRoute/signin", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(formDta),
       });
-      console.log(res)
-      setLoading(false);
+      
       const data = await res.json();
       console.log(data)
-      if (data.success === false) return setError(data.message);
+   
+      if (data.success === false) {
+        dispatch(signInFailure(data.message));
+      }
       if (res.ok) {
+        dispatch(signInSuccess(data));
         Navigate("/");
       }
     } catch (error) {
-      setError(error.message);
-      setLoading(false);
+      dispatch(signInFailure(error.message))
     }
   };
   return (
@@ -86,7 +91,9 @@ const Signin = () => {
                 "Sing in"
               )}
             </Button>
-            <div className="text-sm flex gap-5 mt-5">
+            <OAuth />          
+          </form>
+          <div className="text-sm flex gap-5 mt-5">
               <span>
                 Don.t you have an account ?{" "}
                 <Link to="/Signup" className="text-blue-500">
@@ -95,11 +102,10 @@ const Signin = () => {
               </span>
             </div>
              {error && (<Alert className="mt-3 " color="failure" >{error}</Alert>)}
-          </form>
         </div>
       </div>
     </div>
-  );
+  
 
 
     </div>
