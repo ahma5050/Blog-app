@@ -1,14 +1,15 @@
 import { createSlice, current,  } from "@reduxjs/toolkit";
-const initialState={
-      currentUser:null,
-      error:null,
-      loading:false
+const initialState={     //it is intioaly impity array initialState[]
+      currentUser:null, // [currentUser, setcurrentUser]=usestet(null)
+      error:null,  // [error, seterror]=usestet(null)
+      loading:false  // [loading, setloading]=usestet(null)
 };
 
 const userSlice=createSlice({
-      name:"user",
+      name:"user",// name of userslice stored in store
       initialState,
-      reducers:{
+      reducers:{  //action maker
+            // these are actions
            signInStart:(state)=>{
             state.loading=false;
             state.error=null;

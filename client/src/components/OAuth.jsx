@@ -10,12 +10,13 @@ import { useNavigate } from 'react-router-dom'
 
 const OAuth = () => {
 
-const auth=getAuth(app);
+const auth=getAuth(app); //getAuth function comes from the Firebase Authentication module and getAuth(app) retrieves the Firebase Authentication instance linked to the specified Firebase app (app).
+// You use this auth instance used to perform various and manage or allow all user authentication tasks such as signing up, logging in, signing out, and getting the current user.
 const dispatch=useDispatch()
 const navigate=useNavigate()
 
       const handleGoogleClick=async()=>{
-            const provider=new GoogleAuthProvider();
+            const provider=new GoogleAuthProvider(); // for third partiy provider like google.com there are also for facebbok and othr his object provid google authentication
             provider.setCustomParameters({ prompt: "select_account" });
 
             try{

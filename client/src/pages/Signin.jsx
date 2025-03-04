@@ -7,8 +7,8 @@ import OAuth from "../components/OAuth";
 const Signin = () => {
   const [formDta, setFormData] = useState({});
  
-  const dispatch=useDispatch();
-  const {loading, error}=useSelector((state)=>state.user);
+  const dispatch=useDispatch(); // it updet the userSlice state by calling its property or action then the change made in userclice will be saved in store so letset or updted data accesed from it
+  const {loading, error}=useSelector((state)=>state.user); // selecter slect the required state from from intairestore stored in store
   const Navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formDta, [e.target.id]: e.target.value });
@@ -45,7 +45,7 @@ const Signin = () => {
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-10">
         <div className="flex-1 ">
           <Link to="/Signup" className=" text-4xl font-bold dark:text-white ">
-            <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white ">
+            <span className="px-2 py-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white ">
               Sign's{" "}
             </span>
             In

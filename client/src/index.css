@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Ensure the body background changes */
+    body {
+      @apply bg-white text-black; /* Light mode */
+    }
+    
+    .dark body {
+      @apply bg-gray-900 text-white; /* Dark mode */
+    }
+    
+    
 
 
 

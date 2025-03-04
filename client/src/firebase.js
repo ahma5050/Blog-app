@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app"; //fairbaseapp is our app mern-blog
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+const firebaseConfig = { //fairebase configration it return our credential info when we make Firebase Authentication like signInWithPopup()
   apiKey:import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "mern-blog-69a76.firebaseapp.com",
   projectId: "mern-blog-69a76",
@@ -13,5 +13,6 @@ const firebaseConfig = {
   appId: "1:353044138387:web:7c100ef1113ab8309d4066"
 };
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+
+export const app = initializeApp(firebaseConfig); //coonect fairbaseapp with fairebaseconfig give all info to intiat firebase
+//app contain initaize faie base that give faire base service like  Authentication, Firestore, Storage
